@@ -66,7 +66,7 @@ for movie_url in url_():
     wait = WebDriverWait(driver, 10)
     element = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, 'picture.c-cmsImage.c-cmsImage-loaded img')))
 
-    image = element.get_attribute('src')git init
+    image = element.get_attribute('src')
 
     # Save to database
     movie_instance = Movie(
