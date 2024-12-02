@@ -39,86 +39,7 @@
         <span></span>
     </div>
 </div>
-<!--end of preloading-->
-<!--login form popup-->
-<div class="login-wrapper" id="login-content">
-    <div class="login-content">
-        <a href="#" class="close">x</a>
-        <h3>Login</h3>
-        <form method="post" action="#">
-        	<div class="row">
-        		 <label for="username">
-                    Username:
-                    <input type="text" name="username" id="username" placeholder="Hugh Jackman" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" />
-                </label>
-        	</div>
-           
-            <div class="row">
-            	<label for="password">
-                    Password:
-                    <input type="password" name="password" id="password" placeholder="******" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
-                </label>
-            </div>
-            <div class="row">
-            	<div class="remember">
-					<div>
-						<input type="checkbox" name="remember" value="Remember me"><span>Remember me</span>
-					</div>
-            		<a href="#">Forget password ?</a>
-            	</div>
-            </div>
-           <div class="row">
-           	 <button type="submit">Login</button>
-           </div>
-        </form>
-        <div class="row">
-        	<p>Or via social</p>
-            <div class="social-btn-2">
-            	<a class="fb" href="#"><i class="ion-social-facebook"></i>Facebook</a>
-            	<a class="tw" href="#"><i class="ion-social-twitter"></i>twitter</a>
-            </div>
-        </div>
-    </div>
-</div>
-<!--end of login form popup-->
-<!--signup form popup-->
-<div class="login-wrapper"  id="signup-content">
-    <div class="login-content">
-        <a href="#" class="close">x</a>
-        <h3>sign up</h3>
-        <form method="post" action="#">
-            <div class="row">
-                 <label for="username-2">
-                    Username:
-                    <input type="text" name="username" id="username-2" placeholder="Hugh Jackman" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" />
-                </label>
-            </div>
-           
-            <div class="row">
-                <label for="email-2">
-                    your email:
-                    <input type="password" name="email" id="email-2" placeholder="" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
-                </label>
-            </div>
-             <div class="row">
-                <label for="password-2">
-                    Password:
-                    <input type="password" name="password" id="password-2" placeholder="" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
-                </label>
-            </div>
-             <div class="row">
-                <label for="repassword-2">
-                    re-type Password:
-                    <input type="password" name="password" id="repassword-2" placeholder="" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
-                </label>
-            </div>
-           <div class="row">
-             <button type="submit">sign up</button>
-           </div>
-        </form>
-    </div>
-</div>
-<!--end of signup form popup-->
+
 
 <!-- BEGIN | Header -->
 <header class="ht-header">
@@ -147,71 +68,153 @@
         Home
     </a>
 </li>
-
-						<li class="dropdown first">
-							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-							movies<i class="fa fa-angle-down" aria-hidden="true"></i>
-							</a>
-							<ul class="dropdown-menu level1">
-			
-								<li><a href="{% url 'movie_list' %}">Movie list</a></li>
-								<li><a href="{% url 'movie_single' %}">Movie single</a></li>
-
-							</ul>
-						</li>
-						<li class="dropdown first">
-							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-							celebrities <i class="fa fa-angle-down" aria-hidden="true"></i>
-							</a>
-							<ul class="dropdown-menu level1">
-								<li><a href="{% url 'celebrity_list' %}">celebrity list</a></li>
-								<li class="it-last"><a href="{% url 'celebrity_single' %}">celebrity single</a></li>
-							</ul>
-						</li>
-                        <li class="first">
-                            <a href="{% url 'blog_list' %}" class="btn btn-default lv1">
-                                News
+                        <li class="dropdown first">
+                            <a class="btn btn-default lv1" href="{% url 'movie_list' %}">
+                                movies
                             </a>
                         </li>
+                        <li class="dropdown first">
+                            <a class="btn btn-default lv1" href="{% url 'celebrity_list' %}">
+                                celebrities
+                            </a>
+                        </li>
+
+
+
 						<li class="dropdown first">
 							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
 							community <i class="fa fa-angle-down" aria-hidden="true"></i>
 							</a>
 							<ul class="dropdown-menu level1">
 								<li><a href="{% url 'user_favorite_grid' %}">user favorite grid</a></li>
-								<li><a href="{% url 'user_favorite_list' %}">user favorite list</a></li>
 								<li><a href="{% url 'user_profile' %}">user profile</a></li>
 								<li class="it-last"><a href="{% url 'user_rate' %}">user rate</a></li>
 							</ul>
 						</li>
 					</ul>us
-					<ul class="nav navbar-nav flex-child-menu menu-right">
-						<li class="dropdown first">
-							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-							pages <i class="fa fa-angle-down" aria-hidden="true"></i>
-							</a>
-							<ul class="dropdown-menu level1">
-								<li><a href="{% url 'landing' %}">Landing</a></li>
-								<li><a href="{% url '404' %}">404 Page</a></li>
-								<li class="it-last"><a href="{% url 'comingsoon' %}">Coming soon</a></li>
-							</ul>
-						</li>                
-						<li><a href="#">Help</a></li>
-						<li class="loginLink"><a href="#">LOG In</a></li>
-						<li class="btn signupLink"><a href="#">sign up</a></li>
-					</ul>
+                    <ul class="nav navbar-nav flex-child-menu menu-right">
+                        <li class="dropdown first">
+                            <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+                                pages <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </a>
+                            <ul class="dropdown-menu level1">
+                                <li><a href="{% url 'landing' %}">Landing</a></li>
+                                <li><a href="{% url '404' %}">404 Page</a></li>
+                                <li class="it-last"><a href="{% url 'comingsoon' %}">Coming soon</a></li>
+                            </ul>
+                        </li>
+
+                        {% if user.is_authenticated %}
+                            <li class="first">
+                                <a class="btn btn-default lv1 username-highlight" href="{% url 'user_profile' %}">
+                                    {{ user.username }}
+                                </a>
+                            </li>
+
+
+                            </li>
+                        {% else %}
+                            <li><a href="{% url 'users:login' %}">LOG IN</a></li>
+                            <li><a href="{% url 'users:register' %}">SIGN UP</a></li>
+                        {% endif %}
+                    </ul>
 				</div>
 			<!-- /.navbar-collapse -->
 	    </nav>
-	    
+
 	    <!-- top search form -->
-	    <div class="top-search">
-	    	<select>
-				<option value="united">TV show</option>
-				<option value="saab">Others</option>
-			</select>
-			<input type="text" placeholder="Search for a movie, TV Show or celebrity that you are looking for">
-	    </div>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .username-highlight {
+    color: #ff9800;
+    font-weight: bold;
+    text-transform: uppercase;
+        }
+
+        .top-search {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .top-search select {
+            margin-right: 10px;
+        }
+        
+        .top-search input[type="text"] {
+            padding-right: 40px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 8px;
+        }
+
+        .top-search button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: none;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .top-search i {
+            color: rgba(0, 0, 0, 0);
+            font-size: 30px;
+            transition: color 0.3s ease;
+        }
+
+        .top-search i.active {
+            color: rgba(0, 0, 0, 1);
+        }
+    </style>
+</head>
+<body>
+    <form action="{% url 'movie_list' %}" method="GET">
+        <div class="top-search">
+            <select name="category">
+                <option value="tvshow">TV Show</option>
+
+            </select>
+            <input type="text" name="search" placeholder="Search..." id="searchInput" />
+            <button type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+    </form>
+        <form action="{% url 'celebrity_list' %}" method="GET">
+        <div class="top-search">
+            <input type="text" name="search" placeholder="Search Celebrities..." id="celebritySearchInput" />
+            <button type="submit">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+    </form>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const searchIcon = document.querySelector('.top-search i');
+
+        searchInput.addEventListener('input', function() {
+            if (searchInput.value.trim() !== '') {
+                searchIcon.classList.add('active');
+            } else {
+                searchIcon.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+
+
+
+
+
+
 	</div>
 </header>
 
@@ -230,7 +233,7 @@
 			<div class="flex-child-ft item2">
 				<h4>Resources</h4>
 				<ul>
-					<li><a href="#">About</a></li> 
+					<li><a href="#">About</a></li>
 					<li><a href="#">Blockbuster</a></li>
 					<li><a href="#">Contact Us</a></li>
 					<li><a href="#">Forums</a></li>
@@ -241,16 +244,16 @@
 			<div class="flex-child-ft item3">
 				<h4>Legal</h4>
 				<ul>
-					<li><a href="#">Terms of Use</a></li> 
-					<li><a href="#">Privacy Policy</a></li>	
+					<li><a href="#">Terms of Use</a></li>
+					<li><a href="#">Privacy Policy</a></li>
 					<li><a href="#">Security</a></li>
 				</ul>
 			</div>
 			<div class="flex-child-ft item4">
 				<h4>Account</h4>
 				<ul>
-					<li><a href="#">My Account</a></li> 
-					<li><a href="#">Watchlist</a></li>	
+					<li><a href="#">My Account</a></li>
+					<li><a href="#">Watchlist</a></li>
 					<li><a href="#">Collections</a></li>
 					<li><a href="#">User Guide</a></li>
 				</ul>

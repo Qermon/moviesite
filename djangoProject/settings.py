@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 from pathlib import Path
 
+from django.urls import reverse_lazy
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -26,7 +28,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = BASE_DIR / 'media'
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -37,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'film.apps.FilmConfig',
+    'users',
+
 ]
 
 MIDDLEWARE = [
@@ -72,14 +77,12 @@ WSGI_APPLICATION = 'djangoProject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'MHwyjxBoRDeGPuPgYUpluDlAfByeEbxn',
-        'HOST': 'viaduct.proxy.rlwy.net',
-        'PORT': '51353',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -97,6 +100,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+LOGIN_REDIRECT_URL = 'home'
+
+
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -110,6 +117,9 @@ STATIC_ROOT = BASE_DIR / 'static'
 STATICFILES_DIRS = [
     BASE_DIR / 'film/static'
 ]
+
+
+
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

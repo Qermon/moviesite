@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Rate and Review: {{ movie.title }}</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="user_rate">Your Rating (1-10):</label>
+            {{ form.user_rate }}
+        </div>
+        <div class="form-group">
+            <label for="review">Your Review:</label>
+            {{ form.review }}
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <a href="{% url 'movie_detail' title=movie.title id=movie.id %}" class="btn btn-secondary mt-3">Back to Movie</a>
+</div>
+{% endblock %}

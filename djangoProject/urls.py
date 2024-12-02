@@ -16,27 +16,35 @@ Including another URLconf
 """
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from djangoProject import settings
 from film import views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name='home'),
-    path('moviesingle/', views.movie_single, name='movie_single'),
+    path('users/', include('users.urls', namespace='users')),
+    path('', views.HomeView.as_view(), name='home'),
+    path('moviesingle/', views.ShowMovie.as_view(), name='movie_single'),
     path('moviegrid/', views.movie_grid, name='movie_grid'),
     path('movielist/', views.movie_list, name='movie_list'),
     path('celebritylist/', views.celebrity_list, name='celebrity_list'),
-    path('celebritysingle/', views.celebrity_single, name='celebrity_single'),
+    path('celebritysingle/', views.ShowCelebrity.as_view(), name='celebrity_single'),
     path('userprofile./', views.user_profile, name='user_profile'),
-    path('bloglist/', views.blog_list, name='blog_list'),
+    path('change-avatar/', views.change_avatar, name='change_avatar'),
+    path('add-to-favorite/<int:movie_id>/', views.add_to_favorite, name='add_to_favorite'),
+    path('add_actor_favorite/<int:actor_id>/', views.add_actor_favorite, name='add_actor_favorite'),
     path('userfavoritegrid/', views.user_favorite_grid, name='user_favorite_grid'),
     path('userfavoritelist/', views.user_favorite_list, name='user_favorite_list'),
     path('userrate/', views.user_rate, name='user_rate'),
-    path('landing/', views.landing, name='landing'),
-    path('404/', views.er_404, name='404'),
-    path('comingsoon/', views.coming_soon, name='comingsoon'),
+    path('landing/', views.Landing.as_view(), name='landing'),
+    path('404/', views.Error.as_view(), name='404'),
+    path('comingsoon/', views.ComingSoon.as_view(), name='comingsoon'),
+    path('celebrity/<slug:actor_names>/<int:id>/', views.ShowCelebrity.as_view(), name='actor-detail'),
+    path('movie/<str:title>/<int:id>/', views.ShowMovie.as_view(), name='movie-detail'),
+    path('movie/<str:title>/<int:id>/add_rating/', views.add_rating, name='add_rating'),
+
 
 ]
 if settings.DEBUG:
